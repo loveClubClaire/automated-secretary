@@ -1,0 +1,416 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C09486461B69A56100F8F2D2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C09486451B69A56100F8F2D2 /* AppDelegate.m */; };
+		C09486481B69A56100F8F2D2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C09486471B69A56100F8F2D2 /* main.m */; };
+		C094864A1B69A56100F8F2D2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C09486491B69A56100F8F2D2 /* Images.xcassets */; };
+		C094864D1B69A56100F8F2D2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C094864B1B69A56100F8F2D2 /* MainMenu.xib */; };
+		C09486591B69A56100F8F2D2 /* Automated_SecretaryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C09486581B69A56100F8F2D2 /* Automated_SecretaryTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C09486531B69A56100F8F2D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C09486371B69A56100F8F2D2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C094863E1B69A56100F8F2D2;
+			remoteInfo = "Automated Secretary";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C094863F1B69A56100F8F2D2 /* Automated Secretary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Automated Secretary.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C09486431B69A56100F8F2D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C09486441B69A56100F8F2D2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C09486451B69A56100F8F2D2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C09486471B69A56100F8F2D2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C09486491B69A56100F8F2D2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C094864C1B69A56100F8F2D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		C09486521B69A56100F8F2D2 /* Automated SecretaryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Automated SecretaryTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C09486571B69A56100F8F2D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C09486581B69A56100F8F2D2 /* Automated_SecretaryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Automated_SecretaryTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C094863C1B69A56100F8F2D2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C094864F1B69A56100F8F2D2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C09486361B69A56100F8F2D2 = {
+			isa = PBXGroup;
+			children = (
+				C09486411B69A56100F8F2D2 /* Automated Secretary */,
+				C09486551B69A56100F8F2D2 /* Automated SecretaryTests */,
+				C09486401B69A56100F8F2D2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C09486401B69A56100F8F2D2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C094863F1B69A56100F8F2D2 /* Automated Secretary.app */,
+				C09486521B69A56100F8F2D2 /* Automated SecretaryTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C09486411B69A56100F8F2D2 /* Automated Secretary */ = {
+			isa = PBXGroup;
+			children = (
+				C09486441B69A56100F8F2D2 /* AppDelegate.h */,
+				C09486451B69A56100F8F2D2 /* AppDelegate.m */,
+				C09486491B69A56100F8F2D2 /* Images.xcassets */,
+				C094864B1B69A56100F8F2D2 /* MainMenu.xib */,
+				C09486421B69A56100F8F2D2 /* Supporting Files */,
+			);
+			path = "Automated Secretary";
+			sourceTree = "<group>";
+		};
+		C09486421B69A56100F8F2D2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C09486431B69A56100F8F2D2 /* Info.plist */,
+				C09486471B69A56100F8F2D2 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C09486551B69A56100F8F2D2 /* Automated SecretaryTests */ = {
+			isa = PBXGroup;
+			children = (
+				C09486581B69A56100F8F2D2 /* Automated_SecretaryTests.m */,
+				C09486561B69A56100F8F2D2 /* Supporting Files */,
+			);
+			path = "Automated SecretaryTests";
+			sourceTree = "<group>";
+		};
+		C09486561B69A56100F8F2D2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C09486571B69A56100F8F2D2 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C094863E1B69A56100F8F2D2 /* Automated Secretary */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C094865C1B69A56100F8F2D2 /* Build configuration list for PBXNativeTarget "Automated Secretary" */;
+			buildPhases = (
+				C094863B1B69A56100F8F2D2 /* Sources */,
+				C094863C1B69A56100F8F2D2 /* Frameworks */,
+				C094863D1B69A56100F8F2D2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Automated Secretary";
+			productName = "Automated Secretary";
+			productReference = C094863F1B69A56100F8F2D2 /* Automated Secretary.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C09486511B69A56100F8F2D2 /* Automated SecretaryTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C094865F1B69A56100F8F2D2 /* Build configuration list for PBXNativeTarget "Automated SecretaryTests" */;
+			buildPhases = (
+				C094864E1B69A56100F8F2D2 /* Sources */,
+				C094864F1B69A56100F8F2D2 /* Frameworks */,
+				C09486501B69A56100F8F2D2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C09486541B69A56100F8F2D2 /* PBXTargetDependency */,
+			);
+			name = "Automated SecretaryTests";
+			productName = "Automated SecretaryTests";
+			productReference = C09486521B69A56100F8F2D2 /* Automated SecretaryTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C09486371B69A56100F8F2D2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = WCNURadio;
+				TargetAttributes = {
+					C094863E1B69A56100F8F2D2 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					C09486511B69A56100F8F2D2 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = C094863E1B69A56100F8F2D2;
+					};
+				};
+			};
+			buildConfigurationList = C094863A1B69A56100F8F2D2 /* Build configuration list for PBXProject "Automated Secretary" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C09486361B69A56100F8F2D2;
+			productRefGroup = C09486401B69A56100F8F2D2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C094863E1B69A56100F8F2D2 /* Automated Secretary */,
+				C09486511B69A56100F8F2D2 /* Automated SecretaryTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C094863D1B69A56100F8F2D2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C094864A1B69A56100F8F2D2 /* Images.xcassets in Resources */,
+				C094864D1B69A56100F8F2D2 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C09486501B69A56100F8F2D2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C094863B1B69A56100F8F2D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C09486481B69A56100F8F2D2 /* main.m in Sources */,
+				C09486461B69A56100F8F2D2 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C094864E1B69A56100F8F2D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C09486591B69A56100F8F2D2 /* Automated_SecretaryTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C09486541B69A56100F8F2D2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C094863E1B69A56100F8F2D2 /* Automated Secretary */;
+			targetProxy = C09486531B69A56100F8F2D2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C094864B1B69A56100F8F2D2 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C094864C1B69A56100F8F2D2 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C094865A1B69A56100F8F2D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		C094865B1B69A56100F8F2D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		C094865D1B69A56100F8F2D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Automated Secretary/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C094865E1B69A56100F8F2D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Automated Secretary/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		C09486601B69A56100F8F2D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Automated SecretaryTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Automated Secretary.app/Contents/MacOS/Automated Secretary";
+			};
+			name = Debug;
+		};
+		C09486611B69A56100F8F2D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Automated SecretaryTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Automated Secretary.app/Contents/MacOS/Automated Secretary";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C094863A1B69A56100F8F2D2 /* Build configuration list for PBXProject "Automated Secretary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C094865A1B69A56100F8F2D2 /* Debug */,
+				C094865B1B69A56100F8F2D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C094865C1B69A56100F8F2D2 /* Build configuration list for PBXNativeTarget "Automated Secretary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C094865D1B69A56100F8F2D2 /* Debug */,
+				C094865E1B69A56100F8F2D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C094865F1B69A56100F8F2D2 /* Build configuration list for PBXNativeTarget "Automated SecretaryTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C09486601B69A56100F8F2D2 /* Debug */,
+				C09486611B69A56100F8F2D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C09486371B69A56100F8F2D2 /* Project object */;
+}
