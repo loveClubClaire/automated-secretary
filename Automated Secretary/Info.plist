@@ -4,10 +4,27 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeIconFile</key>
+			<string>GearIcon</string>
+			<key>CFBundleTypeMIMETypes</key>
+			<array>
+				<string>com.Zach.Automated-Secretary.wsec</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>Automated Secretary Icon</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+		</dict>
+	</array>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIconFile</key>
-	<string></string>
+	<string>Gear Icon</string>
 	<key>CFBundleIdentifier</key>
 	<string>Zach.$(PRODUCT_NAME:rfc1034identifier)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -17,18 +34,54 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>1.1.1</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleTypeExtensions</key>
+	<array>
+		<string>wsec</string>
+	</array>
+	<key>CFBundleTypeIconFiles</key>
+	<array>
+		<string>GearIcon</string>
+	</array>
+	<key>CFBundleTypeName</key>
+	<string>WSEC - WCNURadio Automated Secretary</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>$(MACOSX_DEPLOYMENT_TARGET)</string>
+	<key>LSMultipleInstancesProhibited</key>
+	<true/>
+	<key>LSUIElement</key>
+	<true/>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2015 WCNURadio. All rights reserved.</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>UTExportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.data</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>Automated Secretary Docunment</string>
+			<key>UTTypeIconFile</key>
+			<string>GearIcon</string>
+			<key>UTTypeIdentifier</key>
+			<string>com.Zach.Automated-Secretary.wsec</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>wsec</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
 </dict>
 </plist>
