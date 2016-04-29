@@ -19,8 +19,12 @@
     _usersPreferencesView = [_usersPreferenceWindow contentView];
     _oauth2PreferencesView = [_OAuth2Window contentView];
     
+    //Oauth2 Constants
+    _CLIENT_ID = @"8207607529-urfp1826m7d044pu2rc4jco781241ms9.apps.googleusercontent.com";
+    _KEYCHAIN_ITEM_NAME = @"automated-secretary";
+    _CLIENT_SECRET = @"WDd-b14S7vNQqcefDklfH9_-";
     //Get the Oauth2 instance and if there is a refresh token (so if the user has approved OAuth2 authentication) refresh the authorization for the secesion. If there isn't a refresh token, user needs to set up OAuth2 for an email.
-    _auth = [GTMOAuth2WindowController authForGoogleFromKeychainForName:KEYCHAIN_ITEM_NAME clientID:CLIENT_ID clientSecret:CLIENT_SECRET];
+    _auth = [GTMOAuth2WindowController authForGoogleFromKeychainForName:_KEYCHAIN_ITEM_NAME clientID:_CLIENT_ID clientSecret:_CLIENT_SECRET];
     if (_auth.refreshToken != nil) {
         [_auth beginTokenFetchWithDelegate:self didFinishSelector:@selector(auth:finishedRefreshWithFetcher:error:)];
         [_OAuth2Email setStringValue:[_auth userEmail]];
@@ -78,6 +82,9 @@
     }
 
 }
+
+
+
 //Window functions
 - (IBAction)generalPreferences:(id)sender{
     NSView *tempView = [[NSView alloc]init];
@@ -197,6 +204,50 @@
     _attendanceFolderPath = aFilepath;
 }
 
+//OAuth2 functions
+- (void)auth:(GTMOAuth2Authentication *)auth finishedRefreshWithFetcher:(GTMHTTPFetcher *)fetcher error:(NSError *)error {
+    [self windowController:nil finishedWithAuth:auth error:error];
+}
+- (void)windowController:(GTMOAuth2WindowController *)viewController finishedWithAuth:(GTMOAuth2Authentication *)auth error:(NSError *)error{
+    if (error != nil) {
+        // Authentication failed
+        return;
+    }
+    
+    _auth = auth;
+    [_OAuth2Email setStringValue:[_auth userEmail]];
+    
+//    NSString * email = [auth userEmail];
+//    NSString * accessToken = [auth accessToken];
+//    
+//    MCOIMAPSession * imapSession = [[MCOIMAPSession alloc] init];
+//    [imapSession setAuthType:MCOAuthTypeXOAuth2];
+//    [imapSession setOAuth2Token:accessToken];
+//    [imapSession setUsername:email];
+//    // Use a different hostname if you oauth authenticate against a different provider
+//    [imapSession setHostname:@"imap.gmail.com"];
+//    [imapSession setPort:993];
+//    
+//    MCOSMTPSession * smtpSession = [[MCOSMTPSession alloc] init];
+//    [smtpSession setAuthType:MCOAuthTypeXOAuth2];
+//    [smtpSession setOAuth2Token:accessToken];
+//    [smtpSession setUsername:email];
+}
+- (IBAction)UpdateOauth2Email:(id)sender {
+    GTMOAuth2WindowController *windowController =
+    [[GTMOAuth2WindowController alloc] initWithScope:@"https://mail.google.com/"
+                                            clientID:_CLIENT_ID
+                                        clientSecret:_CLIENT_SECRET
+                                    keychainItemName:_KEYCHAIN_ITEM_NAME
+                                      resourceBundle:[NSBundle bundleForClass:[GTMOAuth2WindowController class]]];
+    
+    [windowController signInSheetModalForWindow:nil
+                                       delegate:self
+                               finishedSelector:@selector(windowController:finishedWithAuth:error:)];
+    
+}
+
+
 //Custom functions for rest of application
 -(MailController*)CreateMailController{
     MailController *newMailController = [[MailController alloc]initMailController:_inboundServerValue IMAPPort:_inboundPortValue IMAPUsername:_inboundUsernameValue IMAPPassword:_inboundPasswordValue :_outboundServerValue :_outboundPortValue :_outboundUsernameValue :_outboundPasswordValue];
@@ -236,10 +287,6 @@
     }
 }
 
-- (IBAction)UpdateOauth2Email:(id)sender {
-    
-    
-    
-}
+
 
 @end

@@ -14,10 +14,7 @@
 #import "GTMOAuth2WindowController.h"
 #import "GTMHTTPFetcher.h"
 
-//Oauth2 Constants
-NSString *CLIENT_ID = @"8207607529-urfp1826m7d044pu2rc4jco781241ms9.apps.googleusercontent.com";
-NSString *KEYCHAIN_ITEM_NAME = @"automated-secretary";
-NSString *CLIENT_SECRET = @"WDd-b14S7vNQqcefDklfH9_-";
+
 
 @interface Preferences : NSObject
 @property (weak) IBOutlet adminAccess *adminAccess;
@@ -50,6 +47,9 @@ NSString *CLIENT_SECRET = @"WDd-b14S7vNQqcefDklfH9_-";
 @property NSArray *ccEmails;
 @property NSArray *bccEmails;
 @property GTMOAuth2Authentication *auth;
+@property NSString *CLIENT_ID;
+@property NSString *KEYCHAIN_ITEM_NAME;
+@property NSString *CLIENT_SECRET;
 
 @property (weak) IBOutlet NSWindow *OAuth2Window;
 @property (weak) IBOutlet NSWindow *defaultPreferenceWindow;
