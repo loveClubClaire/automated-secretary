@@ -12,7 +12,7 @@
 
 @implementation MailController
 
--(id)initMailController:(NSString*)IMAPHostName IMAPPort:(int)IMAPPort IMAPUsername:(NSString*)IMAPUsername IMAPPassword:(NSString*)IMAPPassword :(NSString*)SMTPHostName :(int)SMTPPort :(NSString*)SMTPUsername :(NSString*)SMTPPassword{
+-(id)initMailControllerOld:(NSString*)IMAPHostName IMAPPort:(int)IMAPPort IMAPUsername:(NSString*)IMAPUsername IMAPPassword:(NSString*)IMAPPassword :(NSString*)SMTPHostName :(int)SMTPPort :(NSString*)SMTPUsername :(NSString*)SMTPPassword{
         
     //Initalize the Mailcore IMAP object
     _IMAPSession = [[MCOIMAPSession alloc]init];
@@ -37,18 +37,24 @@
     NSString * email = aUserEmail;
     NSString * accessToken = anAccessToken;
     
-    MCOIMAPSession * imapSession = [[MCOIMAPSession alloc] init];
-    [imapSession setAuthType:MCOAuthTypeXOAuth2];
-    [imapSession setOAuth2Token:accessToken];
-    [imapSession setUsername:email];
+    _IMAPSession = [[MCOIMAPSession alloc] init];
+    [_IMAPSession setAuthType:MCOAuthTypeXOAuth2];
+    [_IMAPSession setConnectionType:MCOConnectionTypeTLS];
+    [_IMAPSession setOAuth2Token:accessToken];
+    [_IMAPSession setUsername:email];
     // Use a different hostname if you oauth authenticate against a different provider
-    [imapSession setHostname:@"imap.gmail.com"];
-    [imapSession setPort:993];
+    [_IMAPSession setHostname:@"imap.gmail.com"];
+    [_IMAPSession setPort:993];
 
-    MCOSMTPSession * smtpSession = [[MCOSMTPSession alloc] init];
-    [smtpSession setAuthType:MCOAuthTypeXOAuth2];
-    [smtpSession setOAuth2Token:accessToken];
-    [smtpSession setUsername:email];
+    _SMTPSession = [[MCOSMTPSession alloc] init];
+    [_SMTPSession setAuthType:MCOAuthTypeXOAuth2];
+    [_SMTPSession setConnectionType:MCOConnectionTypeTLS];
+    [_SMTPSession setOAuth2Token:accessToken];
+    [_SMTPSession setUsername:email];
+    [_SMTPSession setHostname:@"smtp.gmail.com"];
+    [_SMTPSession setPort:465];
+
+
     
     return self;
 }
@@ -211,6 +217,7 @@
     MCOIMAPOperation * op = [_IMAPSession checkAccountOperation];
     [op start:^(NSError * error) {
         if (error) {
+        NSLog(@"ErrorIMAP: %@", error);
         [isValidString setString:@"false"];
         dispatch_semaphore_signal(sema);
         }
@@ -237,9 +244,11 @@
         [isValidString setString:@"false"];
     }
     else{
-    MCOSMTPOperation * op = [_SMTPSession loginOperation];
+    MCOAddress *fromAddress = [MCOAddress addressWithMailbox:@"whitten.zach@gmail.com"];
+    MCOSMTPOperation * op = [_SMTPSession checkAccountOperationWithFrom:fromAddress];
     [op start:^(NSError * error) {
         if (error) {
+        NSLog(@"ErrorSMTP: %@", error);
         [isValidString setString:@"false"];
         dispatch_semaphore_signal(sema);
         }

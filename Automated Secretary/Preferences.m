@@ -234,7 +234,8 @@
 
 //Custom functions for rest of application
 -(MailController*)CreateMailController{
-    MailController *newMailController = [[MailController alloc]initMailController:_inboundServerValue IMAPPort:_inboundPortValue IMAPUsername:_inboundUsernameValue IMAPPassword:_inboundPasswordValue :_outboundServerValue :_outboundPortValue :_outboundUsernameValue :_outboundPasswordValue];
+    //MailController *newMailController = [[MailController alloc]initMailController:_inboundServerValue IMAPPort:_inboundPortValue IMAPUsername:_inboundUsernameValue IMAPPassword:_inboundPasswordValue :_outboundServerValue :_outboundPortValue :_outboundUsernameValue :_outboundPasswordValue];
+    MailController *newMailController = [[MailController alloc] initMailController:[_auth accessToken] aUserEmail:[_auth userEmail]];
     return newMailController;
 }
 
