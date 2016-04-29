@@ -216,22 +216,6 @@
     
     _auth = auth;
     [_OAuth2Email setStringValue:[_auth userEmail]];
-    
-//    NSString * email = [auth userEmail];
-//    NSString * accessToken = [auth accessToken];
-//    
-//    MCOIMAPSession * imapSession = [[MCOIMAPSession alloc] init];
-//    [imapSession setAuthType:MCOAuthTypeXOAuth2];
-//    [imapSession setOAuth2Token:accessToken];
-//    [imapSession setUsername:email];
-//    // Use a different hostname if you oauth authenticate against a different provider
-//    [imapSession setHostname:@"imap.gmail.com"];
-//    [imapSession setPort:993];
-//    
-//    MCOSMTPSession * smtpSession = [[MCOSMTPSession alloc] init];
-//    [smtpSession setAuthType:MCOAuthTypeXOAuth2];
-//    [smtpSession setOAuth2Token:accessToken];
-//    [smtpSession setUsername:email];
 }
 - (IBAction)UpdateOauth2Email:(id)sender {
     GTMOAuth2WindowController *windowController =
