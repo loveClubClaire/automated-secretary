@@ -11,8 +11,6 @@
 
 @interface MailController : NSObject
 
--(id)initMailControllerOld:(NSString*)IMAPHostName IMAPPort:(int)IMAPPort IMAPUsername:(NSString*)IMAPUsername IMAPPassword:(NSString*)IMAPPassword :(NSString*)SMTPHostName :(int)SMTPPort :(NSString*)SMTPUsername :(NSString*)SMTPPassword;
-
 -(id)initMailController:(NSString*)anAccessToken aUserEmail:(NSString*)aUserEmail;
 
 -(Boolean)SendEmail:(NSArray*)ToAddresses :(NSArray*)CCs :(NSArray*)BCCs :(NSString*)Subject :(NSString*)Message;

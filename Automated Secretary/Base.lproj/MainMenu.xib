@@ -51,7 +51,6 @@
             <connections>
                 <outlet property="OAuth2Email" destination="2DD-Fu-236" id="OSz-iX-bLY"/>
                 <outlet property="OAuth2Window" destination="r59-lD-aC7" id="vB1-bH-9Fj"/>
-                <outlet property="accountPreferenceWindow" destination="e1h-2l-Dvp" id="nIx-96-aZs"/>
                 <outlet property="adminAccess" destination="mvr-mo-PHn" id="f8q-Wx-Ecm"/>
                 <outlet property="adminPrivileges" destination="btL-qv-5ed" id="pQi-08-pWV"/>
                 <outlet property="attendanceFolder" destination="nEY-RW-Jk2" id="w8o-Mp-dJ8"/>
@@ -59,17 +58,9 @@
                 <outlet property="connectionStatusWindow" destination="yS2-I7-lTq" id="M6R-PL-UOh"/>
                 <outlet property="defaultPreferenceWindow" destination="YF4-xh-Wqt" id="vPD-RI-daf"/>
                 <outlet property="inboundMailImage" destination="9Un-lU-6mL" id="9nE-ks-wow"/>
-                <outlet property="inboundPassword" destination="B0U-C4-VK6" id="ls4-6b-w8V"/>
-                <outlet property="inboundPort" destination="rhe-j5-Jsp" id="RkC-Hy-7on"/>
                 <outlet property="inboundProgress" destination="lxv-KL-j4s" id="cg8-QS-cqF"/>
-                <outlet property="inboundServer" destination="eNY-pl-hQ0" id="Lia-Ga-5ks"/>
-                <outlet property="inboundUsername" destination="pUv-Uc-JNq" id="hO6-FX-eZK"/>
                 <outlet property="outboundMailImage" destination="gas-gA-vMA" id="zlt-mE-1rt"/>
-                <outlet property="outboundPassword" destination="Ps4-Jr-haW" id="XrF-kj-mnH"/>
-                <outlet property="outboundPort" destination="kl8-oU-KVP" id="3ok-1r-erW"/>
                 <outlet property="outboundProgress" destination="83T-9w-bqk" id="wa7-SK-pg9"/>
-                <outlet property="outboundServer" destination="HzX-ny-08z" id="Wdx-HH-Jcd"/>
-                <outlet property="outboundUsername" destination="7Yl-PZ-23Y" id="czL-ZW-Gw3"/>
                 <outlet property="usersBccText" destination="P7P-KU-X6E" id="7RY-ya-xos"/>
                 <outlet property="usersCcText" destination="c40-dL-Kdz" id="xme-TT-dR4"/>
                 <outlet property="usersPreferenceWindow" destination="IpO-gT-khP" id="Mr7-7p-klU"/>
@@ -1155,17 +1146,12 @@ Gw
                             <action selector="generalPreferences:" target="RFj-Dd-NBn" id="KDU-Dy-qyc"/>
                         </connections>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="D4492FF0-A7F0-4DFB-8A40-20FDFC2371CC" label="Accounts" paletteLabel="Accounts" tag="-1" image="NSUserAccounts" id="nzC-Jx-mzo">
-                        <connections>
-                            <action selector="accountsPreferences:" target="RFj-Dd-NBn" id="Cub-mu-OeO"/>
-                        </connections>
-                    </toolbarItem>
                     <toolbarItem implicitItemIdentifier="0D0284D9-B6F1-4F99-B64D-D6B42B13B449" label="Users" paletteLabel="Users" tag="-1" image="NSUserGroup" id="gce-9A-brL">
                         <connections>
                             <action selector="usersPreferences:" target="RFj-Dd-NBn" id="xjh-Op-TmX"/>
                         </connections>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="57073203-0E95-4943-843D-F56566367BF7" label="OAuth2 Account" paletteLabel="OAuth2 Account" tag="-1" id="fq6-I2-Sij">
+                    <toolbarItem implicitItemIdentifier="57073203-0E95-4943-843D-F56566367BF7" label="Account" paletteLabel="Account" tag="-1" image="NSUserAccounts" id="fq6-I2-Sij">
                         <connections>
                             <action selector="Oauth2Preferences:" target="RFj-Dd-NBn" id="mIb-Q8-yqm"/>
                         </connections>
@@ -1173,247 +1159,12 @@ Gw
                 </allowedToolbarItems>
                 <defaultToolbarItems>
                     <toolbarItem reference="R56-R6-0Et"/>
-                    <toolbarItem reference="nzC-Jx-mzo"/>
+                    <toolbarItem reference="fq6-I2-Sij"/>
                     <toolbarItem reference="gce-9A-brL"/>
                     <toolbarItem reference="9Mp-ZX-azC"/>
-                    <toolbarItem reference="fq6-I2-Sij"/>
                 </defaultToolbarItems>
             </toolbar>
             <point key="canvasLocation" x="-201" y="-210.5"/>
-        </window>
-        <window title="PreferenceWindow" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="e1h-2l-Dvp">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
-            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="131" y="165" width="450" height="410"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
-            <value key="minSize" type="size" width="450" height="410"/>
-            <value key="maxSize" type="size" width="450" height="410"/>
-            <view key="contentView" id="W8I-cy-k2A">
-                <rect key="frame" x="0.0" y="-4" width="450" height="410"/>
-                <autoresizingMask key="autoresizingMask"/>
-                <subviews>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1ky-4j-jyW">
-                        <rect key="frame" x="36" y="274" width="134" height="17"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Incoming Mail Server" id="fM6-34-Qrr">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pUv-Uc-JNq">
-                        <rect key="frame" x="176" y="333" width="236" height="22"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="N0O-Rc-d5s">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                        <connections>
-                            <outlet property="nextKeyView" destination="B0U-C4-VK6" id="AQr-Xz-L9g"/>
-                        </connections>
-                    </textField>
-                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eNY-pl-hQ0">
-                        <rect key="frame" x="176" y="269" width="236" height="22"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="LXJ-3p-DB8">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                        <connections>
-                            <outlet property="nextKeyView" destination="rhe-j5-Jsp" id="KKR-zJ-nDY"/>
-                        </connections>
-                    </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rjg-IV-LEz">
-                        <rect key="frame" x="103" y="338" width="67" height="17"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Username" id="7mt-oh-dzR">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mz5-V9-5PN">
-                        <rect key="frame" x="105" y="306" width="65" height="17"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Password" id="Cbn-k1-Ae4">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <box verticalHuggingPriority="750" fixedFrame="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="QXc-e7-PI6">
-                        <rect key="frame" x="12" y="226" width="426" height="5"/>
-                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <font key="titleFont" metaFont="system"/>
-                    </box>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6YJ-yS-ROd">
-                        <rect key="frame" x="133" y="373" width="184" height="17"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Inbound Mail Account (IMAP)" id="TLh-x4-BtT">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rhe-j5-Jsp">
-                        <rect key="frame" x="176" y="237" width="79" height="22"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" baseWritingDirection="rightToLeft" userInterfaceLayoutDirection="rightToLeft" drawsBackground="YES" id="u7x-oG-6pV">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                        <connections>
-                            <outlet property="nextKeyView" destination="7Yl-PZ-23Y" id="f8N-dc-goO"/>
-                        </connections>
-                    </textField>
-                    <secureTextField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B0U-C4-VK6">
-                        <rect key="frame" x="176" y="301" width="236" height="22"/>
-                        <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" usesSingleLineMode="YES" id="Zqr-oJ-NaQ">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                            <allowedInputSourceLocales>
-                                <string>NSAllRomanInputSourcesLocaleIdentifier</string>
-                            </allowedInputSourceLocales>
-                        </secureTextFieldCell>
-                        <connections>
-                            <outlet property="nextKeyView" destination="eNY-pl-hQ0" id="fSu-uu-VwU"/>
-                        </connections>
-                    </secureTextField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Grv-Ze-ASo">
-                        <rect key="frame" x="87" y="242" width="83" height="17"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Port Number" id="3XG-1A-14D">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <box verticalHuggingPriority="750" fixedFrame="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="mHB-YS-ola">
-                        <rect key="frame" x="-12" y="56" width="504" height="5"/>
-                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <font key="titleFont" metaFont="system"/>
-                    </box>
-                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wdv-wZ-nYD">
-                        <rect key="frame" x="354" y="13" width="90" height="32"/>
-                        <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="GpP-Ng-E32">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                            <string key="keyEquivalent" base64-UTF8="YES">
-DQ
-</string>
-                        </buttonCell>
-                        <connections>
-                            <action selector="prefSubmit:" target="RFj-Dd-NBn" id="Cb7-cx-vGS"/>
-                        </connections>
-                    </button>
-                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cc8-UC-UB1">
-                        <rect key="frame" x="264" y="13" width="90" height="32"/>
-                        <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="JfR-uu-Dnf">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                            <string key="keyEquivalent" base64-UTF8="YES">
-Gw
-</string>
-                        </buttonCell>
-                        <connections>
-                            <action selector="prefCancel:" target="RFj-Dd-NBn" id="Y3x-mw-Y4W"/>
-                        </connections>
-                    </button>
-                    <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Psd-3d-cry">
-                        <rect key="frame" x="6" y="17" width="25" height="25"/>
-                        <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="QHW-kk-hFt">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J7X-iz-cKD">
-                        <rect key="frame" x="126" y="203" width="199" height="17"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Outbound Mail Account (STMP)" id="GaP-BS-LhN">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4yB-0Z-mRn">
-                        <rect key="frame" x="36" y="104" width="134" height="17"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Outgoing Mail Server" id="Qgm-XD-vmX">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Yl-PZ-23Y">
-                        <rect key="frame" x="176" y="163" width="236" height="22"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="LBO-y4-w6a">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                        <connections>
-                            <outlet property="nextKeyView" destination="Ps4-Jr-haW" id="NoX-BT-rq8"/>
-                        </connections>
-                    </textField>
-                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HzX-ny-08z">
-                        <rect key="frame" x="176" y="99" width="236" height="22"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="keh-mB-yMw">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                        <connections>
-                            <outlet property="nextKeyView" destination="kl8-oU-KVP" id="3uf-aw-Jfr"/>
-                        </connections>
-                    </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vTd-RE-8aP">
-                        <rect key="frame" x="103" y="168" width="67" height="17"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Username" id="egB-1A-XiL">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IY4-wQ-hGi">
-                        <rect key="frame" x="105" y="136" width="65" height="17"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Password" id="Lfr-3n-Pdf">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kl8-oU-KVP">
-                        <rect key="frame" x="176" y="67" width="79" height="22"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" baseWritingDirection="rightToLeft" userInterfaceLayoutDirection="rightToLeft" drawsBackground="YES" id="dBx-3w-CAJ">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                        <connections>
-                            <outlet property="nextKeyView" destination="pUv-Uc-JNq" id="eEb-XT-sYG"/>
-                        </connections>
-                    </textField>
-                    <secureTextField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ps4-Jr-haW">
-                        <rect key="frame" x="176" y="131" width="236" height="22"/>
-                        <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" usesSingleLineMode="YES" id="lS2-nK-RM4">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                            <allowedInputSourceLocales>
-                                <string>NSAllRomanInputSourcesLocaleIdentifier</string>
-                            </allowedInputSourceLocales>
-                        </secureTextFieldCell>
-                        <connections>
-                            <outlet property="nextKeyView" destination="HzX-ny-08z" id="T4c-n3-tIp"/>
-                        </connections>
-                    </secureTextField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ALL-ah-0FA">
-                        <rect key="frame" x="87" y="72" width="83" height="17"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Port Number" id="cHF-de-hRi">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                </subviews>
-            </view>
-            <point key="canvasLocation" x="302" y="-137"/>
         </window>
         <window title="Connection Status" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="yS2-I7-lTq">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>

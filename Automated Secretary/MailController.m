@@ -12,27 +12,6 @@
 
 @implementation MailController
 
--(id)initMailControllerOld:(NSString*)IMAPHostName IMAPPort:(int)IMAPPort IMAPUsername:(NSString*)IMAPUsername IMAPPassword:(NSString*)IMAPPassword :(NSString*)SMTPHostName :(int)SMTPPort :(NSString*)SMTPUsername :(NSString*)SMTPPassword{
-        
-    //Initalize the Mailcore IMAP object
-    _IMAPSession = [[MCOIMAPSession alloc]init];
-    [_IMAPSession setHostname:IMAPHostName];
-    [_IMAPSession setPort:IMAPPort];
-    [_IMAPSession setUsername:IMAPUsername];
-    [_IMAPSession setPassword:IMAPPassword];
-    [_IMAPSession setConnectionType:MCOConnectionTypeTLS];
-
-    //Initalize the Mailcore SMTP Object
-    _SMTPSession = [[MCOSMTPSession alloc] init];
-    _SMTPSession.hostname = SMTPHostName;
-    _SMTPSession.port = SMTPPort;
-    _SMTPSession.username = SMTPUsername;
-    _SMTPSession.password = SMTPPassword;
-    _SMTPSession.connectionType = MCOConnectionTypeTLS;
-    
-    return self;
-}
-
 -(id)initMailController:(NSString*)anAccessToken aUserEmail:(NSString*)aUserEmail{
     NSString * email = aUserEmail;
     NSString * accessToken = anAccessToken;
@@ -51,16 +30,12 @@
     [_SMTPSession setConnectionType:MCOConnectionTypeTLS];
     [_SMTPSession setOAuth2Token:accessToken];
     [_SMTPSession setUsername:email];
+    // Use a different hostname if you oauth authenticate against a different provider
     [_SMTPSession setHostname:@"smtp.gmail.com"];
     [_SMTPSession setPort:465];
 
-
-    
     return self;
 }
-
-
-
 
 //Function to send an email to any number of email addresses. CC and BCC fields are nullible, everything else is not.
 -(Boolean)SendEmail:(NSArray*)ToAddresses :(NSArray*)CCs :(NSArray*)BCCs :(NSString*)Subject :(NSString*)Message{
@@ -244,7 +219,7 @@
         [isValidString setString:@"false"];
     }
     else{
-    MCOAddress *fromAddress = [MCOAddress addressWithMailbox:@"whitten.zach@gmail.com"];
+    MCOAddress *fromAddress = [MCOAddress addressWithMailbox:_SMTPSession.username];
     MCOSMTPOperation * op = [_SMTPSession checkAccountOperationWithFrom:fromAddress];
     [op start:^(NSError * error) {
         if (error) {
