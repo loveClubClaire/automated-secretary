@@ -17,6 +17,14 @@
     _generalPreferencesView = [_defaultPreferenceWindow contentView];
     _accountPreferencesView = [_accountPreferenceWindow contentView];
     _usersPreferencesView = [_usersPreferenceWindow contentView];
+    _oauth2PreferencesView = [_OAuth2Window contentView];
+    
+    //Get the Oauth2 instance and if there is a refresh token (so if the user has approved OAuth2 authentication) refresh the authorization for the secesion. If there isn't a refresh token, user needs to set up OAuth2 for an email.
+    _auth = [GTMOAuth2WindowController authForGoogleFromKeychainForName:KEYCHAIN_ITEM_NAME clientID:CLIENT_ID clientSecret:CLIENT_SECRET];
+    if (_auth.refreshToken != nil) {
+        [_auth beginTokenFetchWithDelegate:self didFinishSelector:@selector(auth:finishedRefreshWithFetcher:error:)];
+        [_OAuth2Email setStringValue:[_auth userEmail]];
+    }
     
     //Load saved preference data
     NSFileManager *fileManager = [[NSFileManager alloc]init];
@@ -106,7 +114,17 @@
     [self.defaultPreferenceWindow setTitle:@"Users"];
     [self.defaultPreferenceWindow setContentView:_usersPreferencesView];
 }
-
+- (IBAction)Oauth2Preferences:(id)sender;{
+    NSView *tempView = [[NSView alloc]init];
+    [self.defaultPreferenceWindow setContentView:tempView];
+    NSRect tempFrame = [self.defaultPreferenceWindow frame];
+    tempFrame.origin.y += tempFrame.size.height;
+    tempFrame.origin.y -= 209;
+    tempFrame.size.height = 209;
+    [self.defaultPreferenceWindow setFrame:tempFrame display:YES animate:YES];
+    [self.defaultPreferenceWindow setTitle:@"Account"];
+    [self.defaultPreferenceWindow setContentView:_oauth2PreferencesView];
+}
 
 //Ok and Cancel buttons
 - (IBAction)prefSubmit:(id)sender {
@@ -216,6 +234,12 @@
     else{
         [_adminPrivileges setState:NSOffState];
     }
+}
+
+- (IBAction)UpdateOauth2Email:(id)sender {
+    
+    
+    
 }
 
 @end

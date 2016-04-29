@@ -8,10 +8,12 @@
 
 #import "MailController.h"
 
+
+
 @implementation MailController
 
 -(id)initMailController:(NSString*)IMAPHostName IMAPPort:(int)IMAPPort IMAPUsername:(NSString*)IMAPUsername IMAPPassword:(NSString*)IMAPPassword :(NSString*)SMTPHostName :(int)SMTPPort :(NSString*)SMTPUsername :(NSString*)SMTPPassword{
-    
+        
     //Initalize the Mailcore IMAP object
     _IMAPSession = [[MCOIMAPSession alloc]init];
     [_IMAPSession setHostname:IMAPHostName];
@@ -30,6 +32,9 @@
     
     return self;
 }
+
+
+
 
 //Function to send an email to any number of email addresses. CC and BCC fields are nullible, everything else is not.
 -(Boolean)SendEmail:(NSArray*)ToAddresses :(NSArray*)CCs :(NSArray*)BCCs :(NSString*)Subject :(NSString*)Message{

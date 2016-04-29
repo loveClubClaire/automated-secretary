@@ -10,6 +10,14 @@
 #import <Cocoa/Cocoa.h>
 #import "MailController.h"
 #import "adminAccess.h"
+#import "GTMOAuth2Authentication.h"
+#import "GTMOAuth2WindowController.h"
+#import "GTMHTTPFetcher.h"
+
+//Oauth2 Constants
+NSString *CLIENT_ID = @"8207607529-urfp1826m7d044pu2rc4jco781241ms9.apps.googleusercontent.com";
+NSString *KEYCHAIN_ITEM_NAME = @"automated-secretary";
+NSString *CLIENT_SECRET = @"WDd-b14S7vNQqcefDklfH9_-";
 
 @interface Preferences : NSObject
 @property (weak) IBOutlet adminAccess *adminAccess;
@@ -23,6 +31,8 @@
 @property NSView *accountPreferencesView;
 //View of the users preferences pain
 @property NSView *usersPreferencesView;
+//View of the OAuth2Window
+@property NSView *oauth2PreferencesView;
 @property NSString *preferencesFilePath;
 
 //All preference pane variables
@@ -39,8 +49,9 @@
 @property NSArray *toEmails;
 @property NSArray *ccEmails;
 @property NSArray *bccEmails;
+@property GTMOAuth2Authentication *auth;
 
-
+@property (weak) IBOutlet NSWindow *OAuth2Window;
 @property (weak) IBOutlet NSWindow *defaultPreferenceWindow;
 @property (weak) IBOutlet NSWindow *accountPreferenceWindow;
 @property (weak) IBOutlet NSWindow *usersPreferenceWindow;
@@ -66,10 +77,11 @@
 @property (unsafe_unretained) IBOutlet NSTextView *usersToText;
 @property (unsafe_unretained) IBOutlet NSTextView *usersCcText;
 @property (unsafe_unretained) IBOutlet NSTextView *usersBccText;
+@property (weak) IBOutlet NSTextField *OAuth2Email;
 
 
 
-
+- (IBAction)Oauth2Preferences:(id)sender;
 - (IBAction)generalPreferences:(id)sender;
 - (IBAction)accountsPreferences:(id)sender;
 - (IBAction)usersPreferences:(id)sender;
@@ -77,6 +89,7 @@
 - (IBAction)prefCancel:(id)sender;
 - (IBAction)getAttendanceFolder:(id)sender;
 - (IBAction)activateAdmin:(id)sender;
+- (IBAction)UpdateOauth2Email:(id)sender;
 
 
 -(void)initalize;

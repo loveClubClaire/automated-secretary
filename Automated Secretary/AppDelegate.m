@@ -54,7 +54,66 @@
     //Selector is labelSet and that is the method the timer calls on cue. Edit that to work with timer.
     [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(masterTimeControler:) userInfo:nil repeats:YES];
     [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(checkEmailTimeControler:) userInfo:nil repeats:YES];
+    
 }
+
+////temp
+//- (void) startOAuth2{
+//    
+//    NSString *CLIENT_ID = @"8207607529-urfp1826m7d044pu2rc4jco781241ms9.apps.googleusercontent.com";
+//    NSString *KEYCHAIN_ITEM_NAME = @"automated-secretary";
+//    NSString *CLIENT_SECRET = @"WDd-b14S7vNQqcefDklfH9_-";
+//    
+//    GTMOAuth2Authentication * auth = [GTMOAuth2WindowController authForGoogleFromKeychainForName:KEYCHAIN_ITEM_NAME
+//                                                                                        clientID:CLIENT_ID
+//                                                                                    clientSecret:CLIENT_SECRET];
+//    
+//    if (auth.refreshToken == nil) {
+//        GTMOAuth2WindowController *windowController =
+//        [[GTMOAuth2WindowController alloc] initWithScope:@"https://mail.google.com/"
+//                                                clientID:CLIENT_ID
+//                                            clientSecret:CLIENT_SECRET
+//                                        keychainItemName:KEYCHAIN_ITEM_NAME
+//                                          resourceBundle:[NSBundle bundleForClass:[GTMOAuth2WindowController class]]];
+//        
+//        [windowController signInSheetModalForWindow:nil
+//                                           delegate:self
+//                                   finishedSelector:@selector(windowController:finishedWithAuth:error:)];
+//    }
+//    else {
+//        [auth beginTokenFetchWithDelegate:self
+//                        didFinishSelector:@selector(auth:finishedRefreshWithFetcher:error:)];
+//    }
+//}
+//- (void)auth:(GTMOAuth2Authentication *)auth finishedRefreshWithFetcher:(GTMHTTPFetcher *)fetcher error:(NSError *)error {
+//    [self windowController:nil finishedWithAuth:auth error:error];
+//}
+//- (void)windowController:(GTMOAuth2WindowController *)viewController finishedWithAuth:(GTMOAuth2Authentication *)auth error:(NSError *)error{
+//    if (error != nil) {
+//        // Authentication failed
+//        return;
+//    }
+//    
+//    NSString * email = [auth userEmail];
+//    NSString * accessToken = [auth accessToken];
+//    [auth refreshToken];
+//    
+//    MCOIMAPSession * imapSession = [[MCOIMAPSession alloc] init];
+//    [imapSession setAuthType:MCOAuthTypeXOAuth2];
+//    [imapSession setOAuth2Token:accessToken];
+//    [imapSession setUsername:email];
+//    // Use a different hostname if you oauth authenticate against a different provider
+//    [imapSession setHostname:@"imap.gmail.com"];
+//    [imapSession setPort:993];
+//    
+//    MCOSMTPSession * smtpSession = [[MCOSMTPSession alloc] init];
+//    [smtpSession setAuthType:MCOAuthTypeXOAuth2];
+//    [smtpSession setOAuth2Token:accessToken];
+//    [smtpSession setUsername:email];
+//}
+//end temp
+
+
 
 //Timers and timer functions for the NSThread
 -(void)masterTimeControler:(NSTimer*)timer{
