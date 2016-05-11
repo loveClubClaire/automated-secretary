@@ -184,13 +184,13 @@
 		C09486361B69A56100F8F2D2 = {
 			isa = PBXGroup;
 			children = (
+				C094BCF81B69A60B0070D914 /* Security.framework */,
 				C0EC21691CD257110065D2A3 /* WebKit.framework */,
 				C0EC21671CD256CF0065D2A3 /* SystemConfiguration.framework */,
 				C0F1A9191CC61B4E00A13390 /* mailcore2.xcodeproj */,
 				C04E0E791B74E4A000CBAEE6 /* GearIcon.icns */,
 				C076748B1B7A417800F15D2D /* Gear Icon.icns */,
 				C0F1A9141CC6199000A13390 /* mailcore2 */,
-				C094BCF81B69A60B0070D914 /* Security.framework */,
 				C09486411B69A56100F8F2D2 /* Automated Secretary */,
 				C09486551B69A56100F8F2D2 /* Automated SecretaryTests */,
 				C09486401B69A56100F8F2D2 /* Products */,

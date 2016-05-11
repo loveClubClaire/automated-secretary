@@ -47,6 +47,8 @@
 @property (weak) IBOutlet NSWindow *connectionStatusWindow;
 @property (weak) IBOutlet NSImageView *inboundMailImage;
 @property (weak) IBOutlet NSImageView *outboundMailImage;
+@property (weak) IBOutlet NSToolbar *preferencesToolbar;
+
 
 @property (weak) IBOutlet NSProgressIndicator *outboundProgress;
 @property (weak) IBOutlet NSProgressIndicator *inboundProgress;

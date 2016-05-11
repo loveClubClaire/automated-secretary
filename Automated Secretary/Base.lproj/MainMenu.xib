@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -61,6 +61,7 @@
                 <outlet property="inboundProgress" destination="lxv-KL-j4s" id="cg8-QS-cqF"/>
                 <outlet property="outboundMailImage" destination="gas-gA-vMA" id="zlt-mE-1rt"/>
                 <outlet property="outboundProgress" destination="83T-9w-bqk" id="wa7-SK-pg9"/>
+                <outlet property="preferencesToolbar" destination="OLP-fa-Ri3" id="o4N-mn-VHD"/>
                 <outlet property="usersBccText" destination="P7P-KU-X6E" id="7RY-ya-xos"/>
                 <outlet property="usersCcText" destination="c40-dL-Kdz" id="xme-TT-dR4"/>
                 <outlet property="usersPreferenceWindow" destination="IpO-gT-khP" id="Mr7-7p-klU"/>
@@ -1134,24 +1135,24 @@ Gw
                     </popUpButton>
                 </subviews>
             </view>
-            <toolbar key="toolbar" implicitIdentifier="016E683C-85A3-4F72-85FB-845BC186F560" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="OLP-fa-Ri3">
+            <toolbar key="toolbar" implicitIdentifier="016E683C-85A3-4F72-85FB-845BC186F560" autosavesConfiguration="NO" allowsUserCustomization="NO" displayMode="iconAndLabel" sizeMode="regular" id="OLP-fa-Ri3">
                 <allowedToolbarItems>
                     <toolbarItem implicitItemIdentifier="NSToolbarShowColorsItem" id="CyF-nj-KLw"/>
                     <toolbarItem implicitItemIdentifier="NSToolbarShowFontsItem" id="Lyp-nB-RA8"/>
                     <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="r3Q-Pq-fPD"/>
                     <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="6EM-61-eXp"/>
                     <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="9Mp-ZX-azC"/>
-                    <toolbarItem implicitItemIdentifier="9E1B1A80-6C9F-4A11-9897-BA19D4A3188C" label="General" paletteLabel="General" tag="-1" image="NSPreferencesGeneral" id="R56-R6-0Et">
+                    <toolbarItem implicitItemIdentifier="9E1B1A80-6C9F-4A11-9897-BA19D4A3188C" explicitItemIdentifier="general" label="General" paletteLabel="General" tag="-1" image="NSPreferencesGeneral" selectable="YES" id="R56-R6-0Et">
                         <connections>
                             <action selector="generalPreferences:" target="RFj-Dd-NBn" id="KDU-Dy-qyc"/>
                         </connections>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="0D0284D9-B6F1-4F99-B64D-D6B42B13B449" label="Users" paletteLabel="Users" tag="-1" image="NSUserGroup" id="gce-9A-brL">
+                    <toolbarItem implicitItemIdentifier="0D0284D9-B6F1-4F99-B64D-D6B42B13B449" label="Users" paletteLabel="Users" tag="-1" image="NSUserGroup" selectable="YES" id="gce-9A-brL">
                         <connections>
                             <action selector="usersPreferences:" target="RFj-Dd-NBn" id="xjh-Op-TmX"/>
                         </connections>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="57073203-0E95-4943-843D-F56566367BF7" label="Account" paletteLabel="Account" tag="-1" image="NSUserAccounts" id="fq6-I2-Sij">
+                    <toolbarItem implicitItemIdentifier="57073203-0E95-4943-843D-F56566367BF7" label="Account" paletteLabel="Account" tag="-1" image="NSUserAccounts" selectable="YES" id="fq6-I2-Sij">
                         <connections>
                             <action selector="Oauth2Preferences:" target="RFj-Dd-NBn" id="mIb-Q8-yqm"/>
                         </connections>

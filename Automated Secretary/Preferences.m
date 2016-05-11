@@ -11,12 +11,13 @@
 @implementation Preferences
 
 //This function is called after the application is finished launching. This is done rather than using init to guarantee that all IB objects have been created.
-
 -(void)initalize{
     //Inialize the preference views
     _generalPreferencesView = [_defaultPreferenceWindow contentView];
     _usersPreferencesView = [_usersPreferenceWindow contentView];
     _oauth2PreferencesView = [_OAuth2Window contentView];
+    //Set the selected toolbar item to be the general preferences window because that is the window displayed by default
+    [_preferencesToolbar setSelectedItemIdentifier:@"general"];
     
     //Oauth2 Constants
     _CLIENT_ID = @"8207607529-urfp1826m7d044pu2rc4jco781241ms9.apps.googleusercontent.com";
@@ -65,8 +66,6 @@
     }
 
 }
-
-
 
 //Window functions
 - (IBAction)generalPreferences:(id)sender{
@@ -119,7 +118,7 @@
     NSArray *anArrayOfData = [[NSArray alloc]initWithObjects: theAdminState, _attendanceFolderPath,_toEmails,_ccEmails,_bccEmails, nil];
     [NSKeyedArchiver archiveRootObject:anArrayOfData toFile:_preferencesFilePath];
 }
--(IBAction)prefCancel:(id)sender{
+- (IBAction)prefCancel:(id)sender{
     [self.defaultPreferenceWindow orderOut:self];
     [self generalPreferences:nil];
     [_adminPrivileges setState:_adminState];
@@ -143,7 +142,7 @@
     }
 
 }
--(void)setTheAttendanceFolderMenu:(NSString *)aFilepath{
+- (void)setTheAttendanceFolderMenu:(NSString *)aFilepath{
     NSWorkspace *myWorkspace = [[NSWorkspace alloc]init];
     NSImage *fileImage = [myWorkspace iconForFile:aFilepath];
     NSSize imageSize; imageSize.width = 16; imageSize.height = 16;
@@ -185,12 +184,12 @@
 
 
 //Custom functions for rest of application
--(MailController*)CreateMailController{
+- (MailController*)CreateMailController{
     MailController *newMailController = [[MailController alloc] initMailController:[_auth accessToken] aUserEmail:[_auth userEmail]];
     return newMailController;
 }
 
--(NSMutableArray *)generateEmailArray:(NSString *)allEmails{
+- (NSMutableArray *)generateEmailArray:(NSString *)allEmails{
     allEmails = [allEmails stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
     allEmails = [allEmails stringByReplacingOccurrencesOfString:@"," withString:@" "];
     NSArray *toReturn = [[NSMutableArray alloc]initWithArray:[allEmails componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
@@ -198,7 +197,7 @@
     NSMutableArray *trueReturn = [[NSMutableArray alloc]initWithArray:toReturn];
     return trueReturn;
 }
--(NSString *)generateEmailString:(NSArray *)allEmails{
+- (NSString *)generateEmailString:(NSArray *)allEmails{
     NSMutableString *toReturn = [[NSMutableString alloc] init];
     for (int i = 0; i < [allEmails count]; i++) {
         [toReturn appendString:[allEmails objectAtIndex:i]];

@@ -279,6 +279,7 @@
     NSApplication *myApp = [NSApplication sharedApplication];
     [myApp activateIgnoringOtherApps:YES];
     //Pull up window
+    [_preferences generalPreferences:self];
     [[_preferences defaultPreferenceWindow] center];
     [[_preferences defaultPreferenceWindow] makeKeyAndOrderFront:self];
     }
