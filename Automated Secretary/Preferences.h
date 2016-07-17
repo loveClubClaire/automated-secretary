@@ -57,9 +57,9 @@
 @property (weak) IBOutlet NSPopUpButton *attendanceFolderMenu;
 @property (weak) IBOutlet NSButton *adminPrivileges;
 @property (weak) IBOutlet NSMenuItem *attendanceFolder;
-@property (unsafe_unretained) IBOutlet NSTextView *usersToText;
-@property (unsafe_unretained) IBOutlet NSTextView *usersCcText;
-@property (unsafe_unretained) IBOutlet NSTextView *usersBccText;
+@property (weak) IBOutlet NSTokenField *toTokenField;
+@property (weak) IBOutlet NSTokenField *ccTokenField;
+@property (weak) IBOutlet NSTokenField *bccTokenField;
 @property (weak) IBOutlet NSTextField *OAuth2Email;
 
 

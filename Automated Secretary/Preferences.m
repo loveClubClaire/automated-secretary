@@ -59,9 +59,9 @@
         _bccEmails = [tempArray objectAtIndex:4];
         
         [_adminPrivileges setState:_adminState];
-        [_usersToText setString:[self generateEmailString:_toEmails]];
-        [_usersCcText setString:[self generateEmailString:_ccEmails]];
-        [_usersBccText setString:[self generateEmailString:_bccEmails]];
+        [_toTokenField setObjectValue:_toEmails];
+        [_ccTokenField setObjectValue:_ccEmails];
+        [_bccTokenField setObjectValue:_bccEmails];
         [self setTheAttendanceFolderMenu:_attendanceFolderPath];
     }
 
@@ -107,9 +107,9 @@
 //Ok and Cancel buttons
 - (IBAction)prefSubmit:(id)sender {
     _adminState = [_adminPrivileges state];
-    _toEmails = [self generateEmailArray:[_usersToText string]];
-    _ccEmails = [self generateEmailArray:[_usersCcText string]];
-    _bccEmails= [self generateEmailArray:[_usersBccText string]];
+    _toEmails = _toTokenField.objectValue;
+    _ccEmails = _ccTokenField.objectValue;
+    _bccEmails = _bccTokenField.objectValue;
     
     [self.defaultPreferenceWindow orderOut:self];
     [self generalPreferences:nil];
@@ -122,9 +122,9 @@
     [self.defaultPreferenceWindow orderOut:self];
     [self generalPreferences:nil];
     [_adminPrivileges setState:_adminState];
-    [_usersToText setString:[self generateEmailString:_toEmails]];
-    [_usersCcText setString:[self generateEmailString:_ccEmails]];
-    [_usersBccText setString:[self generateEmailString:_bccEmails]];
+    [_toTokenField setObjectValue:_toEmails];
+    [_ccTokenField setObjectValue:_ccEmails];
+    [_bccTokenField setObjectValue:_bccEmails];
     [self setTheAttendanceFolderMenu:_attendanceFolderPath];
 }
 
@@ -187,25 +187,6 @@
 - (MailController*)CreateMailController{
     MailController *newMailController = [[MailController alloc] initMailController:[_auth accessToken] aUserEmail:[_auth userEmail]];
     return newMailController;
-}
-
-- (NSMutableArray *)generateEmailArray:(NSString *)allEmails{
-    allEmails = [allEmails stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
-    allEmails = [allEmails stringByReplacingOccurrencesOfString:@"," withString:@" "];
-    NSArray *toReturn = [[NSMutableArray alloc]initWithArray:[allEmails componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
-    toReturn  = [toReturn filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self <> ''"]];
-    NSMutableArray *trueReturn = [[NSMutableArray alloc]initWithArray:toReturn];
-    return trueReturn;
-}
-- (NSString *)generateEmailString:(NSArray *)allEmails{
-    NSMutableString *toReturn = [[NSMutableString alloc] init];
-    for (int i = 0; i < [allEmails count]; i++) {
-        [toReturn appendString:[allEmails objectAtIndex:i]];
-        if (i != [allEmails count] - 1) {
-            [toReturn appendString:@", "];
-        }
-    }
-    return toReturn;
 }
 
 - (IBAction)activateAdmin:(id)sender {
