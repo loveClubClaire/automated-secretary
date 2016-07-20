@@ -176,6 +176,11 @@
             if (canEdit == true) {
                 [self.addShowWindow setTitle:@"Edit Show"];
                 [self.showNameAddShow setStringValue:[self compareAllSelected:@"showName" :allIndices:nil]];
+                //Hacky but I'm just trying to patch this :/ Sorry
+                if ([[self.showNameAddShow stringValue] isEqual: @"Mixed"]) {
+                    [self.showNameAddShow setStringValue:@""];
+                    [self.showNameAddShow setPlaceholderString:@"Mixed"];
+                }
                 [self.dayAddShow selectItemWithTitle:[self compareAllSelected:@"aWeekday" :allIndices:nil]];
                 if ([@"Mixed" isEqualToString:[self compareAllSelected:@"eMails" :allIndices:nil]]) {
                     [self.emailsAddShow setPlaceholderString:@"Mixed"];
@@ -205,6 +210,7 @@
     [NSApp runModalForWindow:_attendanceWindow];
 }
 - (IBAction)addShowCancel:(id)sender{
+    [_showNameAddShow setPlaceholderString:@""];
     [_showNameAddShow setStringValue:@""];
     [_dayAddShow selectItemAtIndex:-1];
     [_emailsAddShow setPlaceholderString:@""];
@@ -232,20 +238,20 @@
         Boolean shownameUnchanged = false;
         Boolean dayunchanged = false;
         Boolean emailunchanged = false;
-        if ([[self.showNameAddShow stringValue]  isEqualToString: @"Mixed"]) {
+        if ([[self.showNameAddShow placeholderString]  isEqualToString: @"Mixed"] && [[self.showNameAddShow stringValue] isEqualToString:@""]) {
             shownameUnchanged = true;
         }
         if ([self.dayAddShow indexOfSelectedItem] == -1) {
             dayunchanged = true;
         }
-        if ([[self.emailsAddShow placeholderString] isEqualToString:@"Mixed"]) {
+        if ([[self.emailsAddShow placeholderString] isEqualToString:@"Mixed"] && ((NSArray *)[_emailsAddShow objectValue]).count == 0){
             emailunchanged = true;
         }
         NSIndexSet *selectedValues = [self.tableView selectedRowIndexes];
         NSUInteger index = [selectedValues firstIndex];
         NSUInteger linearIndex = 0;
         while(index != NSNotFound){
-            //slew of checking if statements. System of bools used for effency
+            //slew of checking if statements. System of bools used for efficiency
             if (shownameUnchanged == false) {
                 [[[_tableViewObject allShows] objectAtIndex:index]setShowName:[_showNameAddShow stringValue]];
             }
@@ -262,6 +268,7 @@
     
     //Reload the table view and then dismiss the new show window
     [_showNameAddShow setStringValue:@""];
+    [_showNameAddShow setPlaceholderString:@""];
     [_dayAddShow selectItemAtIndex:-1];
     [_emailsAddShow setPlaceholderString:@""];
     [_emailsAddShow setObjectValue:nil];
