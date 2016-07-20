@@ -380,18 +380,12 @@
     for (int i = 0; i < [allInformation count]; i++) {
         for (int j = 0; j < [[allInformation objectAtIndex:i] count]; j++) {
         }
-        NSString *temp = [NSString stringWithFormat:@"%@: %@<br>",[[allInformation objectAtIndex:i]objectAtIndex:0],[[allInformation objectAtIndex:i] objectAtIndex:2]];
+        NSString *temp = [NSString stringWithFormat:@"%@: %@<br>",[[allInformation objectAtIndex:i]objectAtIndex:0],[[allInformation objectAtIndex:i] objectAtIndex:1]];
         [statusEmail appendString:temp];
     }
     [statusEmail appendString:@"<br>Station Status:<br>"];
     for (int i = 0; i < [allInformation count]; i++) {
         if ([[[allInformation objectAtIndex:i] objectAtIndex:1] isEqualToString:@"NULL"] == false) {
-//            if ([[allInformation objectAtIndex:i] count] <= 2) {
-//                NSString *temp = [NSString stringWithFormat:@"%@: %@<br>",[[allInformation objectAtIndex:i]objectAtIndex:0],@"absent"];
-//                [statusEmail appendString:temp];
-//
-//            }
-//            else{
                 NSString *temp = [NSString stringWithFormat:@"%@: %@<br>",[[allInformation objectAtIndex:i]objectAtIndex:0],[[allInformation objectAtIndex:i] objectAtIndex:1]];
                 [statusEmail appendString:temp];
         }
