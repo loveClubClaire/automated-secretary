@@ -33,6 +33,7 @@
     [menu addItemWithTitle:@"Save Schedule" action:@selector(saveSchedule:) keyEquivalent:@""];
     [menu addItem:[NSMenuItem separatorItem]];
     [menu addItemWithTitle:@"Check Mail Servers" action:@selector(checkServers) keyEquivalent:@""];
+    [menu addItemWithTitle:@"Import Automated DJ Schedule" action:@selector(importSchedule) keyEquivalent:@""];
     [menu addItemWithTitle:@"Export Attendance Log" action:@selector(exportAttendanceLog) keyEquivalent:@""];
     [menu addItem:[NSMenuItem separatorItem]];
     [menu addItemWithTitle:@"Preferences" action:@selector(openPreferencePane) keyEquivalent:@""];
@@ -462,6 +463,40 @@
     }
     }
 }
+- (void)importSchedule{
+    Boolean hasAccess = false;
+    if ([_mainWindow isVisible] == true) {
+        hasAccess = true;
+    }
+    else{
+        if ([_adminAccessObject isAuthorized] == true) {
+            hasAccess = true;
+        }
+    }
+    if (hasAccess == true) {
+        //Alert user that loading a new schedule will delete all current schedule data and it must be saved to be preserved.
+        NSAlert *confirmOpenSchedule = [[NSAlert alloc] init];
+        [confirmOpenSchedule setMessageText:@"The current schedule will be lost. Are you sure you want to continue?"];
+        [confirmOpenSchedule addButtonWithTitle:@"OK"];
+        [confirmOpenSchedule addButtonWithTitle:@"Cancel"];
+        NSInteger returnValue = [confirmOpenSchedule runModal];
+        if (returnValue == NSAlertFirstButtonReturn) {
+            //create load panel, make panel only accept files with correct file extenction, get file path selevted by user, load the data
+            NSOpenPanel *openPanel = [NSOpenPanel openPanel];
+            NSArray *fileTypes = [[NSArray alloc] initWithObjects:@"adjs", nil];
+            [openPanel setAllowsMultipleSelection:NO];
+            [openPanel setCanChooseDirectories:NO];
+            [openPanel setCanChooseFiles:YES];
+            [openPanel setAllowedFileTypes:fileTypes];
+            if ( [openPanel runModal] == NSModalResponseOK ) {
+                NSURL *pathURL = [openPanel URL];
+                NSString *pathString = [pathURL path];
+                [self processAutoDJFile:pathString];
+            }
+        }
+    }
+
+}
 - (BOOL)application:(NSApplication *)theApplication openFile:(NSString *)filename{
     if([_adminAccessObject isAuthorized]){
     //Alert user that loading a new schedule will delete all current schedule data and it must be saved to be preserved.
@@ -488,6 +523,28 @@
 
 - (BOOL)processFile:(NSString *)file{
     [_tableViewObject setAllShows:[NSKeyedUnarchiver unarchiveObjectWithFile:file]];
+    [_tableView reloadData];
+    //Save _thePrograms data to system file to preserve the loading of data after application is terminated
+    Boolean test = [_tableViewObject saveShowsToFile];
+    return  test; // Return YES when file processed succesfull, else return NO.
+    }
+
+- (BOOL)processAutoDJFile:(NSString *)file{
+    NSDateFormatter *weekdayFormatter = [[NSDateFormatter alloc]init];
+    weekdayFormatter.dateFormat = @"EEEE";
+    //NSKeyedUnarchiver is looking for a specifically named class. We use these lines of code to help it find those classes
+    [NSKeyedUnarchiver setClass:[AutoDJShow class] forClassName:@"Automated_DJ.Show"];
+    [NSKeyedUnarchiver setClass:[Automator class] forClassName:@"Automated_DJ.Automator"];
+    
+    NSArray *autoDJData = [NSKeyedUnarchiver unarchiveObjectWithFile:file];
+    NSMutableArray *secretaryData = [[NSMutableArray alloc] init];
+    
+    for (int i = 0; i < autoDJData.count; i++) {
+        NSDate *showDay = [[[autoDJData objectAtIndex:i] endDate] dateByAddingTimeInterval:-3600];
+        Show *newShow = [[Show alloc]initShow: [[autoDJData objectAtIndex:i] name]: [[NSMutableArray alloc] init]:[weekdayFormatter stringFromDate:showDay]];
+        [secretaryData addObject:newShow];
+    }
+    [_tableViewObject setAllShows:secretaryData];
     [_tableView reloadData];
     //Save _thePrograms data to system file to preserve the loading of data after application is terminated
     Boolean test = [_tableViewObject saveShowsToFile];

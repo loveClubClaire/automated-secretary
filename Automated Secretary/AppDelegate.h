@@ -13,6 +13,8 @@
 #import "Preferences.h"
 #import "AttendanceTableView.h"
 #import "adminAccess.h"
+#import "Automated_Secretary-Swift.h"
+
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
@@ -47,6 +49,7 @@
 - (IBAction)saveSchedule:(id)sender;
 - (IBAction)loadSchedule:(id)sender;
 - (IBAction)connectionStatusOK:(id)sender;
+
 
 @end
 

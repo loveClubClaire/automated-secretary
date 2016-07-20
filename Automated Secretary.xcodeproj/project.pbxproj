@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		C03E5B501D3FF40B00E6A3F8 /* MailCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03E5B491D3FF3F600E6A3F8 /* MailCore.framework */; };
 		C03E5B561D3FF49400E6A3F8 /* MailCore.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C03E5B491D3FF3F600E6A3F8 /* MailCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C03E5B591D400A4400E6A3F8 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03E5B581D400A4400E6A3F8 /* Show.swift */; };
+		C03E5B5B1D400A7E00E6A3F8 /* Automator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03E5B5A1D400A7E00E6A3F8 /* Automator.swift */; };
 		C04E0E7A1B74E4A000CBAEE6 /* GearIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = C04E0E791B74E4A000CBAEE6 /* GearIcon.icns */; };
 		C04E0E831B74E58A00CBAEE6 /* GearIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = C04E0E821B74E58A00CBAEE6 /* GearIcon.icns */; };
 		C05E5B951B6D67D500929A69 /* Preferences.m in Sources */ = {isa = PBXBuildFile; fileRef = C05E5B941B6D67D500929A69 /* Preferences.m */; };
@@ -123,6 +125,9 @@
 
 /* Begin PBXFileReference section */
 		C03E5B351D3FF3F600E6A3F8 /* mailcore2.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = mailcore2.xcodeproj; path = "Automated Secretary/mailcore2/build-mac/mailcore2.xcodeproj"; sourceTree = "<group>"; };
+		C03E5B571D400A4400E6A3F8 /* Automated Secretary-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Automated Secretary-Bridging-Header.h"; sourceTree = "<group>"; };
+		C03E5B581D400A4400E6A3F8 /* Show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
+		C03E5B5A1D400A7E00E6A3F8 /* Automator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Automator.swift; sourceTree = "<group>"; };
 		C04E0E791B74E4A000CBAEE6 /* GearIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = GearIcon.icns; sourceTree = "<group>"; };
 		C04E0E821B74E58A00CBAEE6 /* GearIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = GearIcon.icns; sourceTree = "<group>"; };
 		C05E5B931B6D67D500929A69 /* Preferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Preferences.h; sourceTree = "<group>"; };
@@ -231,6 +236,8 @@
 			isa = PBXGroup;
 			children = (
 				C0EC21661CD253040065D2A3 /* OAuth 2.0 */,
+				C03E5B581D400A4400E6A3F8 /* Show.swift */,
+				C03E5B5A1D400A7E00E6A3F8 /* Automator.swift */,
 				C09486441B69A56100F8F2D2 /* AppDelegate.h */,
 				C0F7256A1B714E2C00745A92 /* AppDelegate.m */,
 				C05E5B931B6D67D500929A69 /* Preferences.h */,
@@ -295,6 +302,7 @@
 				C0EC21541CD252FB0065D2A3 /* GTMHTTPFetchHistory.h */,
 				C0EC21551CD252FB0065D2A3 /* GTMHTTPFetcher.m */,
 				C0EC21561CD252FB0065D2A3 /* GTMHTTPFetcher.h */,
+				C03E5B571D400A4400E6A3F8 /* Automated Secretary-Bridging-Header.h */,
 			);
 			name = "OAuth 2.0";
 			sourceTree = "<group>";
@@ -469,6 +477,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C03E5B591D400A4400E6A3F8 /* Show.swift in Sources */,
+				C03E5B5B1D400A7E00E6A3F8 /* Automator.swift in Sources */,
 				C0B773041B7075B8002B36F6 /* AttendanceTableView.m in Sources */,
 				C09486481B69A56100F8F2D2 /* main.m in Sources */,
 				C0EC215C1CD252FB0065D2A3 /* GTMHTTPFetchHistory.m in Sources */,
@@ -605,6 +615,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "Automated Secretary/Info.plist";
 				INSTALL_PATH = "$(LOCAL_APPS_DIR)";
@@ -612,6 +623,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Zach.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "Automated Secretary/Automated Secretary-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -619,6 +632,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				INFOPLIST_FILE = "Automated Secretary/Info.plist";
@@ -627,6 +641,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Zach.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "Automated Secretary/Automated Secretary-Bridging-Header.h";
 			};
 			name = Release;
 		};
