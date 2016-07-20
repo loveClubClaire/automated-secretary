@@ -30,7 +30,7 @@
 @property (weak) IBOutlet NSToolbarItem *deleteButtonToolbar;
 @property (weak) IBOutlet NSTextField *showNameAddShow;
 @property (weak) IBOutlet NSPopUpButton *dayAddShow;
-@property (unsafe_unretained) IBOutlet NSTextView *emailsAddShow;
+@property (weak) IBOutlet NSTokenField *emailsAddShow;
 @property (weak) IBOutlet Preferences *preferences;
 @property (weak) IBOutlet ShowTableView *tableViewObject;
 @property (weak) IBOutlet AttendanceTableView *attendanceObject;

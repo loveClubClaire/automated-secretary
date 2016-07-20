@@ -32,7 +32,7 @@
                 <outlet property="dayAddShow" destination="BDy-dB-Kur" id="sJn-mk-xQf"/>
                 <outlet property="deleteButtonToolbar" destination="5vQ-ri-4fY" id="w6H-W8-bCw"/>
                 <outlet property="editButtonToolbar" destination="g8B-69-y9U" id="AcL-Ul-HxZ"/>
-                <outlet property="emailsAddShow" destination="R6I-Wo-4Yi" id="xom-7V-TMs"/>
+                <outlet property="emailsAddShow" destination="Sze-Gu-zbJ" id="ZRQ-8u-ULM"/>
                 <outlet property="mainMenu" destination="AYu-sK-qS6" id="Iz2-Nk-WGQ"/>
                 <outlet property="mainWindow" destination="QvC-M9-y7g" id="Fu3-44-6Lb"/>
                 <outlet property="preferences" destination="RFj-Dd-NBn" id="8uF-qw-mqK"/>
@@ -722,7 +722,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="446" y="248" width="600" height="400"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
             <value key="minSize" type="size" width="600" height="400"/>
             <value key="maxSize" type="size" width="600" height="400"/>
             <view key="contentView" id="EiT-Mj-1SZ">
@@ -938,7 +938,7 @@
             <windowStyleMask key="styleMask" titled="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="131" y="165" width="363" height="274"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
             <view key="contentView" id="qXo-iJ-Z1y">
                 <rect key="frame" x="0.0" y="5" width="363" height="274"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -950,35 +950,10 @@
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
+                        <connections>
+                            <outlet property="nextKeyView" destination="BDy-dB-Kur" id="tSL-QH-TGG"/>
+                        </connections>
                     </textField>
-                    <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyk-7w-YRT">
-                        <rect key="frame" x="103" y="61" width="240" height="135"/>
-                        <clipView key="contentView" ambiguous="YES" id="yVN-lI-dH6">
-                            <rect key="frame" x="1" y="1" width="238" height="133"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            <subviews>
-                                <textView ambiguous="YES" importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="R6I-Wo-4Yi">
-                                    <rect key="frame" x="0.0" y="0.0" width="245" height="133"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <size key="minSize" width="238" height="133"/>
-                                    <size key="maxSize" width="463" height="10000000"/>
-                                    <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="238" height="133"/>
-                                    <size key="maxSize" width="463" height="10000000"/>
-                                </textView>
-                            </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </clipView>
-                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="tOZ-1R-DjV">
-                            <rect key="frame" x="-100" y="-100" width="87" height="18"/>
-                            <autoresizingMask key="autoresizingMask"/>
-                        </scroller>
-                        <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="8NT-w5-89V">
-                            <rect key="frame" x="-15" y="1" width="16" height="0.0"/>
-                            <autoresizingMask key="autoresizingMask"/>
-                        </scroller>
-                    </scrollView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Bc-lm-3OI">
                         <rect key="frame" x="18" y="235" width="79" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Show Name" id="5Mw-1l-JU8">
@@ -1029,13 +1004,27 @@ Gw
                             <action selector="addShowCancel:" target="Voe-Tx-rLC" id="oNB-bg-gKR"/>
                         </connections>
                     </button>
+                    <tokenField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sze-Gu-zbJ">
+                        <rect key="frame" x="103" y="61" width="240" height="135"/>
+                        <tokenFieldCell key="cell" selectable="YES" editable="YES" borderStyle="bezel" alignment="left" placeholderString="" drawsBackground="YES" allowsEditingTextAttributes="YES" id="UrK-4d-GbA">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </tokenFieldCell>
+                        <connections>
+                            <outlet property="nextKeyView" destination="IOj-Ih-UGA" id="L3o-KZ-VBj"/>
+                        </connections>
+                    </tokenField>
                     <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BDy-dB-Kur">
-                        <rect key="frame" x="101" y="199" width="100" height="26"/>
+                        <rect key="frame" x="101" y="199" width="115" height="26"/>
                         <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="0hO-Bl-uGB">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="menu"/>
                             <menu key="menu" id="oN8-Km-XU3"/>
                         </popUpButtonCell>
+                        <connections>
+                            <outlet property="nextKeyView" destination="Sze-Gu-zbJ" id="J2n-zX-57p"/>
+                        </connections>
                     </popUpButton>
                 </subviews>
             </view>
@@ -1045,7 +1034,7 @@ Gw
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="131" y="165" width="450" height="151"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
             <value key="minSize" type="size" width="450" height="151"/>
             <value key="maxSize" type="size" width="450" height="151"/>
             <view key="contentView" id="G64-7k-zOS">
@@ -1171,7 +1160,7 @@ Gw
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="131" y="165" width="294" height="178"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
             <view key="contentView" id="Mc4-5S-xaV">
                 <rect key="frame" x="0.0" y="0.0" width="294" height="178"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -1240,7 +1229,7 @@ DQ
             <windowStyleMask key="styleMask" titled="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="131" y="165" width="480" height="311"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
             <view key="contentView" id="Jvx-SI-d3Y">
                 <rect key="frame" x="0.0" y="2" width="480" height="311"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -1361,7 +1350,7 @@ DQ
             <windowStyleMask key="styleMask" titled="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="131" y="165" width="450" height="398"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
             <value key="minSize" type="size" width="450" height="398"/>
             <value key="maxSize" type="size" width="450" height="398"/>
             <view key="contentView" id="Jg1-8s-Rrv">
@@ -1472,7 +1461,7 @@ Gw
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="131" y="158" width="450" height="134"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
             <view key="contentView" id="7j2-G6-BDg">
                 <rect key="frame" x="0.0" y="0.0" width="450" height="134"/>
                 <autoresizingMask key="autoresizingMask"/>

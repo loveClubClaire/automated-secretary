@@ -178,10 +178,10 @@
                 [self.showNameAddShow setStringValue:[self compareAllSelected:@"showName" :allIndices:nil]];
                 [self.dayAddShow selectItemWithTitle:[self compareAllSelected:@"aWeekday" :allIndices:nil]];
                 if ([@"Mixed" isEqualToString:[self compareAllSelected:@"eMails" :allIndices:nil]]) {
-                    [self.emailsAddShow insertText:@"Mixed"];
+                    [self.emailsAddShow setPlaceholderString:@"Mixed"];
                 }
                 else{
-                    [self.emailsAddShow insertText:[_tableViewObject convertEmailsToString:[[[_tableViewObject allShows]objectAtIndex:[allIndices firstIndex]] eMails]]];
+                    [self.emailsAddShow setObjectValue:[[[_tableViewObject allShows]objectAtIndex:[allIndices firstIndex]] eMails]];
                 }
                 [_addShowWindow center];
                 [_addShowWindow makeKeyAndOrderFront:self];
@@ -207,7 +207,8 @@
 - (IBAction)addShowCancel:(id)sender{
     [_showNameAddShow setStringValue:@""];
     [_dayAddShow selectItemAtIndex:-1];
-    [_emailsAddShow setString:@""];
+    [_emailsAddShow setPlaceholderString:@""];
+    [_emailsAddShow setObjectValue:nil];
     [NSApp stopModal];
     [_addShowWindow orderOut:self];
 }
@@ -222,7 +223,7 @@
         else{
             day = [_dayAddShow titleOfSelectedItem];
         }
-        Show *aShow = [[Show alloc]initShow:[_showNameAddShow stringValue] :[self generateEmailArray:[_emailsAddShow string]] :day];
+        Show *aShow = [[Show alloc]initShow:[_showNameAddShow stringValue] :[_emailsAddShow objectValue] :day];
         //Add this new show to the table view source
         [_tableViewObject AddShow:aShow];
     }
@@ -237,7 +238,7 @@
         if ([self.dayAddShow indexOfSelectedItem] == -1) {
             dayunchanged = true;
         }
-        if ([[self.emailsAddShow string] isEqualToString:@"Mixed"]) {
+        if ([[self.emailsAddShow placeholderString] isEqualToString:@"Mixed"]) {
             emailunchanged = true;
         }
         NSIndexSet *selectedValues = [self.tableView selectedRowIndexes];
@@ -252,7 +253,7 @@
                 [[[_tableViewObject allShows] objectAtIndex:index]setAWeekday:[_dayAddShow titleOfSelectedItem]];
             }
             if (emailunchanged == false) {
-               [[[_tableViewObject allShows] objectAtIndex:index]setEMails:[self generateEmailArray:[_emailsAddShow string]]];
+               [[[_tableViewObject allShows] objectAtIndex:index]setEMails:[_emailsAddShow objectValue]];
             }
             index=[selectedValues indexGreaterThanIndex: index];
             linearIndex += 1;
@@ -262,7 +263,8 @@
     //Reload the table view and then dismiss the new show window
     [_showNameAddShow setStringValue:@""];
     [_dayAddShow selectItemAtIndex:-1];
-    [_emailsAddShow setString:@""];
+    [_emailsAddShow setPlaceholderString:@""];
+    [_emailsAddShow setObjectValue:nil];
     [_tableViewObject saveShowsToFile];
     [_tableView reloadData];
     [NSApp stopModal];
