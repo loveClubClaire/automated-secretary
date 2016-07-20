@@ -23,20 +23,20 @@
         </customObject>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
-                <outlet property="addButtonToolbar" destination="1ym-DW-rJ9" id="ak6-AE-keW"/>
+                <outlet property="addButtonToolbar" destination="6b9-5B-CvF" id="Qhe-MP-EdA"/>
                 <outlet property="addShowWindow" destination="4rU-8f-US2" id="sA9-jC-muY"/>
                 <outlet property="adminAccessObject" destination="mvr-mo-PHn" id="iLJ-Wj-fIa"/>
                 <outlet property="attendanceObject" destination="e3W-Tu-Xgj" id="EsM-mv-XMh"/>
                 <outlet property="attendanceView" destination="fUA-eo-0U7" id="qh9-QV-fhV"/>
                 <outlet property="attendanceWindow" destination="y1D-Mf-6Lp" id="j63-HE-VGs"/>
                 <outlet property="dayAddShow" destination="BDy-dB-Kur" id="sJn-mk-xQf"/>
-                <outlet property="deleteButtonToolbar" destination="5vQ-ri-4fY" id="w6H-W8-bCw"/>
-                <outlet property="editButtonToolbar" destination="g8B-69-y9U" id="AcL-Ul-HxZ"/>
+                <outlet property="deleteButtonToolbar" destination="SfQ-ua-h9J" id="9yy-oS-TPO"/>
+                <outlet property="editButtonToolbar" destination="9CH-87-uIi" id="idW-Dt-mju"/>
                 <outlet property="emailsAddShow" destination="Sze-Gu-zbJ" id="ZRQ-8u-ULM"/>
                 <outlet property="mainMenu" destination="AYu-sK-qS6" id="Iz2-Nk-WGQ"/>
                 <outlet property="mainWindow" destination="QvC-M9-y7g" id="Fu3-44-6Lb"/>
                 <outlet property="preferences" destination="RFj-Dd-NBn" id="8uF-qw-mqK"/>
-                <outlet property="showAttendanceToolbar" destination="5T9-Wa-Tjb" id="FJk-ip-Oco"/>
+                <outlet property="showAttendanceToolbar" destination="3yn-aU-j8h" id="ApH-0F-Evk"/>
                 <outlet property="showNameAddShow" destination="IOj-Ih-UGA" id="0JS-kW-R0F"/>
                 <outlet property="tableView" destination="1jh-rs-XhL" id="l8f-ov-xNu"/>
                 <outlet property="tableViewObject" destination="Epe-cN-iCY" id="uG0-ZM-KBo"/>
@@ -868,52 +868,115 @@
                     <constraint firstAttribute="trailing" secondItem="eZq-my-OkV" secondAttribute="trailing" constant="20" symbolic="YES" id="o5V-7Q-rcd"/>
                 </constraints>
             </view>
-            <toolbar key="toolbar" implicitIdentifier="76C7FDAD-6DD9-48FD-95B9-04B74A12F4E7" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="mOw-bG-eyd">
+            <toolbar key="toolbar" implicitIdentifier="76C7FDAD-6DD9-48FD-95B9-04B74A12F4E7" autosavesConfiguration="NO" allowsUserCustomization="NO" displayMode="iconOnly" sizeMode="regular" id="mOw-bG-eyd">
                 <allowedToolbarItems>
-                    <toolbarItem implicitItemIdentifier="NSToolbarShowColorsItem" id="68i-7y-xkJ"/>
-                    <toolbarItem implicitItemIdentifier="NSToolbarShowFontsItem" id="2fr-pJ-Aem"/>
-                    <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="ak2-Oe-qOJ"/>
                     <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="LtB-lb-MmI"/>
                     <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="skd-D2-uZ7"/>
-                    <toolbarItem implicitItemIdentifier="89092B78-F503-4777-A388-DA361A86A7FB" label="Add" paletteLabel="Add" tag="-1" image="NSAddTemplate" id="1ym-DW-rJ9">
-                        <connections>
-                            <action selector="addButtonToolbarClick:" target="Voe-Tx-rLC" id="cTV-uR-83l"/>
-                        </connections>
+                    <toolbarItem implicitItemIdentifier="96D33846-D9A9-4EA0-B508-C0D7CEECAFD2" label="Add" paletteLabel="Add" image="NSAddTemplate" id="6b9-5B-CvF">
+                        <nil key="toolTip"/>
+                        <size key="minSize" width="32" height="32"/>
+                        <size key="maxSize" width="32" height="32"/>
+                        <button key="view" verticalHuggingPriority="750" id="WWl-HZ-aDl">
+                            <rect key="frame" x="0.0" y="14" width="32" height="32"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSAddTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="C9H-w2-LBJ">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="addButtonToolbarClick:" target="Voe-Tx-rLC" id="6on-WT-zPS"/>
+                            </connections>
+                        </button>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="6E0B5731-51FF-4D9B-9F5F-1F17D21BEAC0" label="Edit" paletteLabel="Edit" tag="-1" id="g8B-69-y9U">
-                        <connections>
-                            <action selector="editButtonToolbarClick:" target="Voe-Tx-rLC" id="cVY-t0-aXe"/>
-                        </connections>
+                    <toolbarItem implicitItemIdentifier="5266B047-5B0A-4817-A916-A0EDD4C39DDE" label="Delete" paletteLabel="Delete" image="NSRemoveTemplate" id="SfQ-ua-h9J">
+                        <nil key="toolTip"/>
+                        <size key="minSize" width="32" height="32"/>
+                        <size key="maxSize" width="32" height="32"/>
+                        <button key="view" verticalHuggingPriority="750" id="cin-e0-cbc">
+                            <rect key="frame" x="5" y="14" width="32" height="32"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSRemoveTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Oz7-pT-p8p">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="deleteButtonToolbarClick:" target="Voe-Tx-rLC" id="2Ld-yz-Qmg"/>
+                            </connections>
+                        </button>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="1FFD2107-A273-4AB9-B1ED-45CE7EB6F746" label="Delete" paletteLabel="Delete" tag="-1" image="NSRemoveTemplate" id="5vQ-ri-4fY">
-                        <connections>
-                            <action selector="deleteButtonToolbarClick:" target="Voe-Tx-rLC" id="c78-pi-gNF"/>
-                        </connections>
+                    <toolbarItem implicitItemIdentifier="E3F7049C-510C-4910-B918-1A81524B6FA1" label="Edit" paletteLabel="Edit" id="9CH-87-uIi">
+                        <nil key="toolTip"/>
+                        <size key="minSize" width="40" height="32"/>
+                        <size key="maxSize" width="40" height="32"/>
+                        <button key="view" verticalHuggingPriority="750" id="N6M-oo-BYR">
+                            <rect key="frame" x="0.0" y="14" width="40" height="32"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="roundTextured" title="Edit" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="NJk-hG-Hyf">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="editButtonToolbarClick:" target="Voe-Tx-rLC" id="R47-bf-ITi"/>
+                            </connections>
+                        </button>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="5B8F6501-86B1-4967-9C35-CA7BA07A5840" label="Save" paletteLabel="Save" tag="-1" id="EsP-Cc-6Ck">
-                        <connections>
-                            <action selector="saveSchedule:" target="Voe-Tx-rLC" id="7E7-4D-aMi"/>
-                        </connections>
+                    <toolbarItem implicitItemIdentifier="1EA813AB-27F4-4450-A113-956801D9C077" label="Attendance" paletteLabel="Attendance" id="3yn-aU-j8h">
+                        <nil key="toolTip"/>
+                        <size key="minSize" width="85" height="32"/>
+                        <size key="maxSize" width="85" height="32"/>
+                        <button key="view" verticalHuggingPriority="750" id="ePk-yx-ab9">
+                            <rect key="frame" x="0.0" y="14" width="85" height="32"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="roundTextured" title="Attendance" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fqK-6E-MdB">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="showAttendance:" target="Voe-Tx-rLC" id="W6e-p3-iOC"/>
+                            </connections>
+                        </button>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="E0413B01-C9F4-4D00-9846-2726FC638892" label="Load" paletteLabel="Load" tag="-1" id="hJd-gM-JDn">
-                        <connections>
-                            <action selector="loadSchedule:" target="Voe-Tx-rLC" id="0HZ-Bc-fxi"/>
-                        </connections>
+                    <toolbarItem implicitItemIdentifier="57689CEF-82C4-41C3-A1A3-6FF247CABAC0" label="Save" paletteLabel="Save" id="hBl-R4-1nf">
+                        <nil key="toolTip"/>
+                        <size key="minSize" width="45" height="32"/>
+                        <size key="maxSize" width="45" height="32"/>
+                        <button key="view" verticalHuggingPriority="750" id="Elc-vv-a1b">
+                            <rect key="frame" x="0.0" y="14" width="45" height="32"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="roundTextured" title="Save" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="g00-xc-eah">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="saveSchedule:" target="Voe-Tx-rLC" id="m1J-uf-SWf"/>
+                            </connections>
+                        </button>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="250575B4-9C55-44A0-9EFA-ACB13F2099F8" label="Show Attendance" paletteLabel="Show Attendance" tag="-1" id="5T9-Wa-Tjb">
-                        <connections>
-                            <action selector="showAttendance:" target="Voe-Tx-rLC" id="3zh-34-DBC"/>
-                        </connections>
+                    <toolbarItem implicitItemIdentifier="0F6453AD-FFFE-45E4-9956-E1FE06D3D67F" label="Load" paletteLabel="Load" id="zfX-vx-06s">
+                        <nil key="toolTip"/>
+                        <size key="minSize" width="45" height="32"/>
+                        <size key="maxSize" width="45" height="32"/>
+                        <button key="view" verticalHuggingPriority="750" id="Igt-Eb-Uix">
+                            <rect key="frame" x="0.0" y="14" width="45" height="32"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="roundTextured" title="Load" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="SDp-SD-Z1Q">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="loadSchedule:" target="Voe-Tx-rLC" id="GAr-aN-RTF"/>
+                            </connections>
+                        </button>
                     </toolbarItem>
                 </allowedToolbarItems>
                 <defaultToolbarItems>
-                    <toolbarItem reference="1ym-DW-rJ9"/>
-                    <toolbarItem reference="5vQ-ri-4fY"/>
-                    <toolbarItem reference="g8B-69-y9U"/>
-                    <toolbarItem reference="5T9-Wa-Tjb"/>
+                    <toolbarItem reference="6b9-5B-CvF"/>
+                    <toolbarItem reference="SfQ-ua-h9J"/>
+                    <toolbarItem reference="9CH-87-uIi"/>
+                    <toolbarItem reference="3yn-aU-j8h"/>
                     <toolbarItem reference="skd-D2-uZ7"/>
-                    <toolbarItem reference="EsP-Cc-6Ck"/>
-                    <toolbarItem reference="hJd-gM-JDn"/>
+                    <toolbarItem reference="hBl-R4-1nf"/>
+                    <toolbarItem reference="zfX-vx-06s"/>
                 </defaultToolbarItems>
             </toolbar>
             <point key="canvasLocation" x="348" y="315"/>
